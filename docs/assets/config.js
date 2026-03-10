@@ -21,10 +21,18 @@ window.SITE_CONFIG = {
       status: 'In progress',
       theme: 'Image, text, and multimodal classification',
       summary: 'Comparing pretrained deep learning models on image, text, and multimodal datasets.',
-      dates: {
-        report1: '26 March 2026 - 23:59',
-        final: '06 April 2026 - 23:59'
-      },
+      dates: [
+        {
+          label: 'Report 1',
+          date: '26 March 2026 - 23:59',
+          description: 'First presentation grading milestone'
+        },
+        {
+          label: 'Final report',
+          date: '06 April 2026 - 23:59',
+          description: 'Final presentation grading milestone'
+        }
+      ],
       links: {
         demoVideo: '',
         presentationVideo: '',
@@ -47,7 +55,7 @@ window.SITE_CONFIG = {
       status: 'Coming soon',
       theme: 'To be updated',
       summary: 'This page is prepared in advance and will be filled in when Assignment 2 starts.',
-      dates: {},
+      dates: [],
       links: {
         demoVideo: '',
         presentationVideo: '',
@@ -68,7 +76,7 @@ window.SITE_CONFIG = {
       status: 'Coming soon',
       theme: 'To be updated',
       summary: 'This page is prepared in advance and will be filled in when Assignment 3 starts.',
-      dates: {},
+      dates: [],
       links: {
         demoVideo: '',
         presentationVideo: '',

@@ -151,27 +151,16 @@ function renderAssignmentPage(assignmentId) {
   const datesEl = document.getElementById('assignment-dates');
   if (datesEl) {
     const rows = [];
-    if (assignment.dates?.report1) {
-      rows.push(`
+    if (assignment.dates && Array.isArray(assignment.dates)) {
+      rows.push(...assignment.dates.map(item => `
         <div class="table-row">
           <div>
-            <strong>Report 1</strong>
-            <div class="muted">First presentation grading milestone</div>
+            <strong>${item.label}</strong>
+            <div class="muted">${item.description}</div>
           </div>
-          <div>${assignment.dates.report1}</div>
+          <div>${item.date}</div>
         </div>
-      `);
-    }
-    if (assignment.dates?.final) {
-      rows.push(`
-        <div class="table-row">
-          <div>
-            <strong>Final report</strong>
-            <div class="muted">Final presentation grading milestone</div>
-          </div>
-          <div>${assignment.dates.final}</div>
-        </div>
-      `);
+      `));
     }
     datesEl.innerHTML = rows.length ? rows.join('') : '<div class="inline-note">Add deadlines here when the course announces them.</div>';
   }
