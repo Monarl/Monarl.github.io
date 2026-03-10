@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UMA - Deep Learning and Its Applications</title>
+  <meta name="description" content="GitHub Pages landing page for UMA - Deep Learning and Its Applications." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body onload="renderHome()">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="./index.html">
+        <div class="brand-badge">UMA</div>
+        <div class="brand-meta">
+          <h1 data-site-title>UMA - Deep Learning and Its Applications</h1>
+          <p data-course-title>CO3133 - Deep Learning and Its Applications</p>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a class="nav-link" href="#team">Team</a>
+        <a class="nav-link" href="#assignments">Assignments</a>
+        <a class="nav-link" href="#publish-guide">Publish</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="panel hero-copy">
+          <div class="overline">Deep Learning Course Portfolio</div>
+          <h2>One GitHub Pages home for every assignment in the course.</h2>
+          <p>
+            This landing page is prepared for group <strong data-group-name>UMA</strong> so you can publish every assignment in one place,
+            keep the structure consistent, and replace placeholder links later when your demos, videos, reports, and code are ready.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#assignments">Browse assignment pages</a>
+            <a class="button-secondary" href="./assignments/assignment-1.html">Open Assignment 1</a>
+          </div>
+        </div>
+
+        <aside class="panel hero-side">
+          <div class="info-card">
+            <div class="info-label">Group</div>
+            <div class="info-value" data-group-name>UMA</div>
+          </div>
+          <div class="info-card">
+            <div class="info-label">Instructor</div>
+            <div class="info-value" data-instructor>Lê Thành Sách</div>
+          </div>
+          <div class="info-card">
+            <div class="info-label">Semester</div>
+            <div class="info-value" data-semester>2025-2026, Semester 2</div>
+          </div>
+          <div class="info-card">
+            <div class="info-label">University</div>
+            <div class="info-value" data-university>Ho Chi Minh City University of Technology (HCMUT) - VNUHCM</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h3>Team information</h3>
+            <p class="section-copy">Required on the common page: group name, member names, and course instructor.</p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="metric" data-group-name>UMA</div>
+            <div class="metric-subtitle">Official group name used on the landing page.</div>
+          </article>
+          <article class="card">
+            <div class="metric">3</div>
+            <div class="metric-subtitle">Current listed members prepared in the template.</div>
+          </article>
+          <article class="card">
+            <div class="metric">1</div>
+            <div class="metric-subtitle">Instructor profile shown on all assignment pages.</div>
+          </article>
+        </div>
+
+        <div class="grid-2" style="margin-top: 1rem;">
+          <article class="card">
+            <h4 style="margin: 0;">Members</h4>
+            <ul class="member-list" id="member-list"></ul>
+          </article>
+          <article class="card">
+            <h4 style="margin: 0;">Course overview</h4>
+            <div class="kv" style="margin-top: 1rem;">
+              <div class="kv-row"><div class="kv-label">Course</div><div data-course-title>CO3133 - Deep Learning and Its Applications</div></div>
+              <div class="kv-row"><div class="kv-label">Instructor</div><div data-instructor>Lê Thành Sách</div></div>
+              <div class="kv-row"><div class="kv-label">Semester</div><div data-semester>2025-2026, Semester 2</div></div>
+              <div class="kv-row"><div class="kv-label">Faculty</div><div>Faculty of Computer Science and Engineering</div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="assignments">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Assignment pages</h2>
+            <p class="section-copy">Each card links to a dedicated assignment page where you can later attach videos, code, slides, and reports.</p>
+          </div>
+        </div>
+        <div class="grid-2" id="assignment-cards"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <article class="card">
+          <h4 style="margin: 0;">Assignment 1 deadlines</h4>
+          <div class="timeline" id="deadline-timeline" style="margin-top: 1rem;"></div>
+        </article>
+        <article class="card" id="publish-guide">
+          <h4 style="margin: 0;">Fast editing guide</h4>
+          <p class="content-text">You only need to edit one file later: <strong>docs/assets/config.js</strong>. Update the URLs there, and the home page plus assignment pages will refresh automatically.</p>
+          <div class="code-block" id="quick-edit-code"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-panel">
+      <div>
+        <strong data-group-name>UMA</strong> · <span data-course-title>CO3133 - Deep Learning and Its Applications</span>
+      </div>
+      <a class="button-ghost" href="./assignments/assignment-1.html">Go to Assignment 1</a>
+    </div>
+  </footer>
+
+  <script src="./assets/config.js"></script>
+  <script src="./assets/main.js"></script>
+</body>
+</html>
