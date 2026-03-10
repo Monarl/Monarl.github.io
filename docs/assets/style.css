@@ -462,8 +462,8 @@ img { max-width: 100%; display: block; }
 .placeholder-link {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: 0.35rem;
   padding: 0.95rem 1rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--line);

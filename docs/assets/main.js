@@ -63,7 +63,6 @@ function renderHome() {
         <p class="assignment-summary">${item.summary || ''}</p>
         <div class="assignment-actions">
           <a class="button-secondary" href="${item.page}">Open page</a>
-          <a class="button-ghost" href="#publish-guide">Publishing guide</a>
         </div>
       </article>
     `).join('');

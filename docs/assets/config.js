@@ -46,7 +46,7 @@ window.SITE_CONFIG = {
       page: './assignments/assignment-2.html',
       status: 'Coming soon',
       theme: 'To be updated',
-      summary: 'This page is prepared in advance and can be filled in when Assignment 2 starts.',
+      summary: 'This page is prepared in advance and will be filled in when Assignment 2 starts.',
       dates: {},
       links: {
         demoVideo: '',
@@ -67,28 +67,7 @@ window.SITE_CONFIG = {
       page: './assignments/assignment-3.html',
       status: 'Coming soon',
       theme: 'To be updated',
-      summary: 'This page is prepared in advance and can be filled in when Assignment 3 starts.',
-      dates: {},
-      links: {
-        demoVideo: '',
-        presentationVideo: '',
-        code: '',
-        presentationContent: ''
-      },
-      deliverables: [
-        'Update the assignment name',
-        'Add demo, presentation, code, and report links',
-        'Replace this placeholder summary with the real project scope'
-      ]
-    },
-    {
-      id: 'assignment-4',
-      title: 'Assignment 4',
-      shortTitle: 'A4',
-      page: './assignments/assignment-4.html',
-      status: 'Coming soon',
-      theme: 'To be updated',
-      summary: 'This page is prepared in advance and can be filled in when Assignment 4 starts.',
+      summary: 'This page is prepared in advance and will be filled in when Assignment 3 starts.',
       dates: {},
       links: {
         demoVideo: '',
