@@ -387,7 +387,7 @@ img { max-width: 100%; display: block; }
 
 .link-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
   gap: 0.8rem;
 }
 
@@ -447,6 +447,22 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: 0.78fr 1.22fr;
   gap: 1rem;
+  align-items: start;
+}
+
+.assignment-page-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.assignment-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.assignment-overview-span {
+  grid-column: 1 / -1;
 }
 
 .stack {
@@ -525,13 +541,250 @@ img { max-width: 100%; display: block; }
   color: var(--muted);
 }
 
+.assignment-track-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.assignment-track-heading {
+  display: flex;
+  align-items: center;
+}
+
+.assignment-track-intro {
+  margin: 0.55rem 0 0;
+  max-width: 58rem;
+}
+
+.assignment-track-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.track-card {
+  --track-accent: var(--accent);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.15rem 1.2rem;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(125, 211, 252, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+.track-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0.3rem;
+  background: linear-gradient(180deg, var(--track-accent), transparent);
+}
+
+.track-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.track-card--text {
+  --track-accent: #38bdf8;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(255, 255, 255, 0.03));
+}
+
+.track-card--image {
+  --track-accent: #f59e0b;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(255, 255, 255, 0.03));
+}
+
+.track-card--multimodal {
+  --track-accent: #34d399;
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.1), rgba(255, 255, 255, 0.03));
+}
+
+.track-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.track-card h3 {
+  margin: 0.15rem 0 0;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+}
+
+.track-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.track-tab {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.64rem 0.95rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.track-tab:hover {
+  transform: translateY(-1px);
+}
+
+.track-tab.is-active {
+  color: var(--text);
+  background: rgba(125, 211, 252, 0.16);
+  border-color: rgba(125, 211, 252, 0.34);
+}
+
+.track-view {
+  display: none;
+}
+
+.track-view.is-active {
+  display: block;
+}
+
+.pipeline-flow {
+  display: grid;
+  grid-template-columns: repeat(var(--pipeline-columns, 4), minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.pipeline-step {
+  min-height: 0;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.3rem;
+  padding: 0.9rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(7, 17, 31, 0.62);
+  text-align: center;
+}
+
+.pipeline-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0.2rem);
+  width: 0.7rem;
+  height: 1px;
+  background: rgba(125, 211, 252, 0.3);
+  transform: translateY(-50%);
+}
+
+.pipeline-step:not(:last-child)::after {
+  content: "\2192";
+  position: absolute;
+  top: 50%;
+  right: -1.05rem;
+  color: var(--track-accent);
+  font-size: 1.05rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.pipeline-step span {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.pipeline-step strong {
+  font-size: 0.98rem;
+  line-height: 1.32;
+}
+
+.pipeline-step p {
+  margin: 0;
+  display: none;
+}
+
+.track-link-grid {
+  margin-top: 0.1rem;
+}
+
+.track-result-block {
+  display: grid;
+  gap: 0.8rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.track-result-block > h4 {
+  margin: 0;
+}
+
+.track-result-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.track-result-top h4 {
+  margin: 0;
+}
+
+.result-placeholder,
+.result-figure {
+  margin: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.result-placeholder {
+  min-height: 14rem;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+  text-align: center;
+  gap: 0.55rem;
+  border-style: dashed;
+}
+
+.result-placeholder strong {
+  font-size: 1rem;
+}
+
+.result-placeholder span {
+  max-width: 32rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.result-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.result-figure figcaption {
+  padding: 0.95rem 1rem 1.05rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 @media (max-width: 980px) {
   .hero-grid,
   .page-layout,
   .grid-3,
   .grid-2,
   .assignment-actions,
-  .link-grid {
+  .assignment-overview-grid {
     grid-template-columns: 1fr;
   }
 
@@ -554,6 +807,39 @@ img { max-width: 100%; display: block; }
     grid-template-columns: 1fr;
     gap: 0.35rem;
   }
+
+  .assignment-overview-span {
+    grid-column: auto;
+  }
+
+  .pipeline-flow {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .track-card-top,
+  .track-result-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pipeline-step:not(:last-child)::before {
+    top: auto;
+    left: 50%;
+    bottom: -0.7rem;
+    width: 1px;
+    height: 0.7rem;
+    transform: translateX(-50%);
+  }
+
+  .pipeline-step:not(:last-child)::after {
+    content: "\2193";
+    top: auto;
+    right: auto;
+    left: 50%;
+    bottom: -1.15rem;
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 640px) {
@@ -563,4 +849,9 @@ img { max-width: 100%; display: block; }
   .hero-side,
   .card { padding: 1.15rem; }
   .brand-badge { width: 2.5rem; height: 2.5rem; }
+
+  .track-tab {
+    width: 100%;
+    justify-content: center;
+  }
 }

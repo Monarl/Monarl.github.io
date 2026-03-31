@@ -25,6 +25,86 @@ function linkMarkup(label, url, placeholder) {
     </div>`;
 }
 
+function getAssignmentTrackLinks(assignment) {
+  const emptyLinks = {
+    demoVideo: '',
+    presentationVideo: '',
+    code: '',
+    presentationContent: ''
+  };
+
+  const multimodalFallback = assignment.links || emptyLinks;
+  const trackLinks = assignment.trackLinks || {};
+
+  return {
+    text: { ...emptyLinks, ...(trackLinks.text || {}) },
+    image: { ...emptyLinks, ...(trackLinks.image || {}) },
+    multimodal: { ...emptyLinks, ...multimodalFallback, ...(trackLinks.multimodal || {}) }
+  };
+}
+
+function renderTrackLinkPanels(trackName, links) {
+  const demoEl = document.getElementById(`${trackName}-demo-links`);
+  if (demoEl) {
+    demoEl.innerHTML = [
+      linkMarkup('Demo video', links.demoVideo, 'Add the demo video URL later')
+    ].join('');
+  }
+
+  const codeEl = document.getElementById(`${trackName}-code-links`);
+  if (codeEl) {
+    codeEl.innerHTML = [
+      linkMarkup('Code', links.code, 'Add the notebook or repository link later')
+    ].join('');
+  }
+
+  const presentationEl = document.getElementById(`${trackName}-presentation-links`);
+  if (presentationEl) {
+    presentationEl.innerHTML = [
+      linkMarkup('YouTube presentation', links.presentationVideo, 'Add the YouTube presentation URL later'),
+      linkMarkup('Slides', links.presentationContent, 'Add the slides URL later')
+    ].join('');
+  }
+}
+
+function renderAssignmentTrackLinks(assignment) {
+  const trackLinks = getAssignmentTrackLinks(assignment);
+  renderTrackLinkPanels('text', trackLinks.text);
+  renderTrackLinkPanels('image', trackLinks.image);
+  renderTrackLinkPanels('multimodal', trackLinks.multimodal);
+}
+
+function initAssignmentTabs() {
+  document.querySelectorAll('[data-track-card]').forEach(card => {
+    if (card.dataset.tabsReady === 'true') return;
+
+    const triggers = Array.from(card.querySelectorAll('[data-tab-trigger]'));
+    const panels = Array.from(card.querySelectorAll('[data-tab-panel]'));
+    if (!triggers.length || !panels.length) return;
+
+    const activate = (target) => {
+      triggers.forEach(trigger => {
+        const isActive = trigger.dataset.tabTrigger === target;
+        trigger.classList.toggle('is-active', isActive);
+        trigger.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      panels.forEach(panel => {
+        const isActive = panel.dataset.tabPanel === target;
+        panel.classList.toggle('is-active', isActive);
+        panel.hidden = !isActive;
+      });
+    };
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => activate(trigger.dataset.tabTrigger));
+    });
+
+    card.dataset.tabsReady = 'true';
+    activate(triggers.find(trigger => trigger.classList.contains('is-active'))?.dataset.tabTrigger || triggers[0].dataset.tabTrigger);
+  });
+}
+
 function renderHome() {
   const config = getConfig();
   if (!config) return;
@@ -99,7 +179,7 @@ function renderHome() {
 
   const quickEditEl = document.getElementById('quick-edit-code');
   if (quickEditEl) {
-    quickEditEl.textContent = `// docs/assets/config.js\nwindow.SITE_CONFIG.assignments[0].links.demoVideo = 'PASTE_LINK_HERE';\nwindow.SITE_CONFIG.assignments[0].links.presentationVideo = 'PASTE_LINK_HERE';\nwindow.SITE_CONFIG.assignments[0].links.code = 'PASTE_LINK_HERE';\nwindow.SITE_CONFIG.assignments[0].links.presentationContent = 'PASTE_LINK_HERE';`;
+    quickEditEl.textContent = `// docs/assets/config.js\nconst item = window.SITE_CONFIG.assignments[0];\nitem.trackLinks.text.demoVideo = 'PASTE_LINK_HERE';\nitem.trackLinks.image.code = 'PASTE_LINK_HERE';\nitem.trackLinks.multimodal.presentationVideo = 'PASTE_LINK_HERE';\nitem.trackLinks.multimodal.presentationContent = 'PASTE_LINK_HERE';`;
   }
 }
 
@@ -167,7 +247,9 @@ function renderAssignmentPage(assignmentId) {
 
   const editCodeEl = document.getElementById('assignment-edit-code');
   if (editCodeEl) {
-    editCodeEl.textContent = `// docs/assets/config.js\nconst item = window.SITE_CONFIG.assignments.find(a => a.id === '${assignmentId}');\nitem.links.demoVideo = 'PASTE_LINK_HERE';\nitem.links.presentationVideo = 'PASTE_LINK_HERE';\nitem.links.code = 'PASTE_LINK_HERE';\nitem.links.presentationContent = 'PASTE_LINK_HERE';`;
+    const trackLinks = getAssignmentTrackLinks(assignment);
+    const multimodalCodeLink = trackLinks.multimodal.code || (assignmentId === 'assignment-1' ? '../notebooks/Deep_Learning_Multimodal.ipynb' : 'PASTE_LINK_HERE');
+    editCodeEl.textContent = `// docs/assets/config.js\nconst item = window.SITE_CONFIG.assignments.find(a => a.id === '${assignmentId}');\nitem.trackLinks.text.demoVideo = 'PASTE_LINK_HERE';\nitem.trackLinks.text.code = 'PASTE_LINK_HERE';\nitem.trackLinks.image.demoVideo = 'PASTE_LINK_HERE';\nitem.trackLinks.image.code = 'PASTE_LINK_HERE';\nitem.trackLinks.multimodal.code = '${multimodalCodeLink}';\nitem.trackLinks.multimodal.presentationVideo = 'PASTE_LINK_HERE';\nitem.trackLinks.multimodal.presentationContent = 'PASTE_LINK_HERE';`;
   }
 
   const statusEl = document.getElementById('status-pill');
@@ -175,4 +257,7 @@ function renderAssignmentPage(assignmentId) {
     statusEl.className = `status-pill ${statusClass(assignment.status)}`;
     statusEl.textContent = assignment.status || 'Planned';
   }
+
+  renderAssignmentTrackLinks(assignment);
+  initAssignmentTabs();
 }

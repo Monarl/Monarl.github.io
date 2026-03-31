@@ -10,7 +10,8 @@ window.SITE_CONFIG = {
   members: [
     'Phan Chí Vỹ',
     'Nguyễn Đức Tâm',
-    'Tiêu Trí Bằng'
+    'Tiêu Trí Bằng',
+    'Cao Lê Minh Khoa'
   ],
   assignments: [
     {
@@ -36,8 +37,28 @@ window.SITE_CONFIG = {
       links: {
         demoVideo: '',
         presentationVideo: '',
-        code: '',
+        code: '../notebooks/Deep_Learning_Multimodal.ipynb',
         presentationContent: ''
+      },
+      trackLinks: {
+        text: {
+          demoVideo: '',
+          presentationVideo: '',
+          code: '',
+          presentationContent: ''
+        },
+        image: {
+          demoVideo: '',
+          presentationVideo: '',
+          code: '',
+          presentationContent: ''
+        },
+        multimodal: {
+          demoVideo: '',
+          presentationVideo: '',
+          code: '../notebooks/Deep_Learning_Multimodal.ipynb',
+          presentationContent: ''
+        }
       },
       deliverables: [
         'Problem statement and dataset exploration (EDA)',
@@ -62,6 +83,26 @@ window.SITE_CONFIG = {
         code: '',
         presentationContent: ''
       },
+      trackLinks: {
+        text: {
+          demoVideo: '',
+          presentationVideo: '',
+          code: '',
+          presentationContent: ''
+        },
+        image: {
+          demoVideo: '',
+          presentationVideo: '',
+          code: '',
+          presentationContent: ''
+        },
+        multimodal: {
+          demoVideo: '',
+          presentationVideo: '',
+          code: '',
+          presentationContent: ''
+        }
+      },
       deliverables: [
         'Update the assignment name',
         'Add demo, presentation, code, and report links',
@@ -82,6 +123,26 @@ window.SITE_CONFIG = {
         presentationVideo: '',
         code: '',
         presentationContent: ''
+      },
+      trackLinks: {
+        text: {
+          demoVideo: '',
+          presentationVideo: '',
+          code: '',
+          presentationContent: ''
+        },
+        image: {
+          demoVideo: '',
+          presentationVideo: '',
+          code: '',
+          presentationContent: ''
+        },
+        multimodal: {
+          demoVideo: '',
+          presentationVideo: '',
+          code: '',
+          presentationContent: ''
+        }
       },
       deliverables: [
         'Update the assignment name',

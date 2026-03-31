@@ -25,8 +25,15 @@
 
   <main>
     <section class="page-hero">
-      <div class="container page-layout">
-        <aside class="stack">
+      <div class="container assignment-page-layout">
+        <article class="card">
+          <h1 data-assignment-title>Assignment 3</h1>
+          <p data-assignment-summary class="content-text">
+            This page will be filled in the future when Assignment 3 is released.
+          </p>
+        </article>
+
+        <section class="assignment-overview-grid">
           <article class="card">
             <div class="assignment-top">
               <div>
@@ -37,7 +44,7 @@
             </div>
             <div class="kv" style="margin-top: 1rem;">
               <div class="kv-row"><div class="kv-label">Group</div><div data-group-name>UMA</div></div>
-              <div class="kv-row"><div class="kv-label">Instructor</div><div data-instructor>Lê Thành Sách</div></div>
+              <div class="kv-row"><div class="kv-label">Instructor</div><div data-instructor>LÃª ThÃ nh SÃ¡ch</div></div>
               <div class="kv-row"><div class="kv-label">Theme</div><div data-assignment-theme>To be updated</div></div>
             </div>
           </article>
@@ -47,29 +54,157 @@
             <ul class="member-list" id="assignment-members"></ul>
           </article>
 
-          <article class="card">
+          <article class="card assignment-overview-span">
             <h4 style="margin: 0;">Deadlines</h4>
             <div class="table-like" id="assignment-dates" style="margin-top: 1rem;"></div>
           </article>
-        </aside>
+        </section>
 
-        <div class="stack">
-          <article class="card">
-            <h1 data-assignment-title>Assignment 3</h1>
-            <p data-assignment-summary class="content-text">This page is already prepared so you can fill in links and content later.</p>
-          </article>
+        <article class="card assignment-track-shell" id="assignment-tracks">
+          <div class="assignment-track-heading">
+            <h4 style="margin: 0;">Assignment tracks</h4>
+          </div>
 
-          <article class="card" id="links">
-            <h4 style="margin: 0; margin-bottom: 20px;">Required links</h4>
-            <div class="link-grid" id="assignment-links"></div>
-          </article>
+          <div class="assignment-track-list">
+            <section class="track-card track-card--text" data-track-card>
+              <div class="track-card-top">
+                <div>
+                  <div class="info-label">Text</div>
+                  <h3>Text</h3>
+                </div>
+              </div>
+              <p class="content-text">Will be filled in the future.</p>
 
-          <article class="card">
-            <h4 style="margin: 0;">How to update this page later</h4>
-            <p class="content-text">Edit the URLs inside <strong>docs/assets/config.js</strong>.</p>
-            <div class="code-block" id="assignment-edit-code"></div>
-          </article>
-        </div>
+              <div class="track-tabs" role="tablist" aria-label="Assignment 3 text views">
+                <button class="track-tab is-active" type="button" data-tab-trigger="pipeline">Pipeline</button>
+                <button class="track-tab" type="button" data-tab-trigger="demo">Demo</button>
+                <button class="track-tab" type="button" data-tab-trigger="code">Code</button>
+                <button class="track-tab" type="button" data-tab-trigger="presentation">Presentation</button>
+              </div>
+
+              <div class="track-view is-active" data-tab-panel="pipeline">
+                <div class="pipeline-flow" style="--pipeline-columns: 4;">
+                  <div class="pipeline-step"><span>Input</span><strong>To be updated</strong></div>
+                  <div class="pipeline-step"><span>Prep</span><strong>To be updated</strong></div>
+                  <div class="pipeline-step"><span>Models</span><strong>To be updated</strong></div>
+                  <div class="pipeline-step"><span>Result</span><strong>Will be filled later</strong></div>
+                </div>
+              </div>
+
+              <div class="track-view" data-tab-panel="demo">
+                <div class="link-grid track-link-grid" id="text-demo-links"></div>
+              </div>
+
+              <div class="track-view" data-tab-panel="code">
+                <div class="link-grid track-link-grid" id="text-code-links"></div>
+              </div>
+
+              <div class="track-view" data-tab-panel="presentation">
+                <div class="link-grid track-link-grid" id="text-presentation-links"></div>
+              </div>
+
+              <div class="track-result-block">
+                <h4>Results</h4>
+                <div class="result-placeholder">
+                  <strong>Will be filled in the future</strong>
+                  <span>Add the final text outputs here when Assignment 3 starts.</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="track-card track-card--image" data-track-card>
+              <div class="track-card-top">
+                <div>
+                  <div class="info-label">Image</div>
+                  <h3>Image</h3>
+                </div>
+              </div>
+              <p class="content-text">To be updated when the assignment details are announced.</p>
+
+              <div class="track-tabs" role="tablist" aria-label="Assignment 3 image views">
+                <button class="track-tab is-active" type="button" data-tab-trigger="pipeline">Pipeline</button>
+                <button class="track-tab" type="button" data-tab-trigger="demo">Demo</button>
+                <button class="track-tab" type="button" data-tab-trigger="code">Code</button>
+                <button class="track-tab" type="button" data-tab-trigger="presentation">Presentation</button>
+              </div>
+
+              <div class="track-view is-active" data-tab-panel="pipeline">
+                <div class="pipeline-flow" style="--pipeline-columns: 4;">
+                  <div class="pipeline-step"><span>Input</span><strong>To be updated</strong></div>
+                  <div class="pipeline-step"><span>Prep</span><strong>To be updated</strong></div>
+                  <div class="pipeline-step"><span>Models</span><strong>To be updated</strong></div>
+                  <div class="pipeline-step"><span>Result</span><strong>Will be filled later</strong></div>
+                </div>
+              </div>
+
+              <div class="track-view" data-tab-panel="demo">
+                <div class="link-grid track-link-grid" id="image-demo-links"></div>
+              </div>
+
+              <div class="track-view" data-tab-panel="code">
+                <div class="link-grid track-link-grid" id="image-code-links"></div>
+              </div>
+
+              <div class="track-view" data-tab-panel="presentation">
+                <div class="link-grid track-link-grid" id="image-presentation-links"></div>
+              </div>
+
+              <div class="track-result-block">
+                <h4>Results</h4>
+                <div class="result-placeholder">
+                  <strong>Will be filled in the future</strong>
+                  <span>Add the final image outputs here when Assignment 3 starts.</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="track-card track-card--multimodal" data-track-card>
+              <div class="track-card-top">
+                <div>
+                  <div class="info-label">Multimodal</div>
+                  <h3>Multimodal</h3>
+                </div>
+              </div>
+              <p class="content-text">This section will be updated after the Assignment 3 topic is available.</p>
+
+              <div class="track-tabs" role="tablist" aria-label="Assignment 3 multimodal views">
+                <button class="track-tab is-active" type="button" data-tab-trigger="pipeline">Pipeline</button>
+                <button class="track-tab" type="button" data-tab-trigger="demo">Demo</button>
+                <button class="track-tab" type="button" data-tab-trigger="code">Code</button>
+                <button class="track-tab" type="button" data-tab-trigger="presentation">Presentation</button>
+              </div>
+
+              <div class="track-view is-active" data-tab-panel="pipeline">
+                <div class="pipeline-flow" style="--pipeline-columns: 4;">
+                  <div class="pipeline-step"><span>Input</span><strong>To be updated</strong></div>
+                  <div class="pipeline-step"><span>Prep</span><strong>To be updated</strong></div>
+                  <div class="pipeline-step"><span>Models</span><strong>To be updated</strong></div>
+                  <div class="pipeline-step"><span>Result</span><strong>Will be filled later</strong></div>
+                </div>
+              </div>
+
+              <div class="track-view" data-tab-panel="demo">
+                <div class="link-grid track-link-grid" id="multimodal-demo-links"></div>
+              </div>
+
+              <div class="track-view" data-tab-panel="code">
+                <div class="link-grid track-link-grid" id="multimodal-code-links"></div>
+              </div>
+
+              <div class="track-view" data-tab-panel="presentation">
+                <div class="link-grid track-link-grid" id="multimodal-presentation-links"></div>
+              </div>
+
+              <div class="track-result-block">
+                <h4>Results</h4>
+                <div class="result-placeholder">
+                  <strong>Will be filled in the future</strong>
+                  <span>Add the final multimodal outputs here when Assignment 3 starts.</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </article>
       </div>
     </section>
   </main>
