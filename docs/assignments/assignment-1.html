@@ -66,75 +66,6 @@
           </div>
 
           <div class="assignment-track-list">
-            <section class="track-card track-card--text" data-track-card>
-              <div class="track-card-top">
-                <div>
-                  <div class="info-label">Section 4.2</div>
-                  <h3>Text</h3>
-                </div>
-              </div>
-              <p class="content-text">
-                Compare two text-classification families, RNNs such as LSTM and Transformers, on the same
-                dataset with the same evaluation metrics for a fair comparison.
-              </p>
-
-              <div class="track-tabs" role="tablist" aria-label="Text assignment views">
-                <button class="track-tab is-active" type="button" data-tab-trigger="pipeline">Pipeline</button>
-                <button class="track-tab" type="button" data-tab-trigger="demo">Demo</button>
-                <button class="track-tab" type="button" data-tab-trigger="code">Code</button>
-                <button class="track-tab" type="button" data-tab-trigger="presentation">Presentation</button>
-              </div>
-
-              <div class="track-view is-active" data-tab-panel="pipeline">
-                <div class="pipeline-flow" style="--pipeline-columns: 6;">
-                  <div class="pipeline-step">
-                    <span>Input</span>
-                    <strong>Text dataset</strong>
-                  </div>
-                  <div class="pipeline-step">
-                    <span>Check</span>
-                    <strong>Classes + split</strong>
-                  </div>
-                  <div class="pipeline-step">
-                    <span>Loader</span>
-                    <strong>Dataset + DataLoader</strong>
-                  </div>
-                  <div class="pipeline-step">
-                    <span>Prep</span>
-                    <strong>Clean + tokenize</strong>
-                  </div>
-                  <div class="pipeline-step">
-                    <span>Models</span>
-                    <strong>RNN / LSTM and Transformer</strong>
-                  </div>
-                  <div class="pipeline-step">
-                    <span>Result</span>
-                    <strong>Accuracy + F1 comparison</strong>
-                  </div>
-                </div>
-              </div>
-
-              <div class="track-view" data-tab-panel="demo">
-                <div class="link-grid track-link-grid" id="text-demo-links"></div>
-              </div>
-
-              <div class="track-view" data-tab-panel="code">
-                <div class="link-grid track-link-grid" id="text-code-links"></div>
-              </div>
-
-              <div class="track-view" data-tab-panel="presentation">
-                <div class="link-grid track-link-grid" id="text-presentation-links"></div>
-              </div>
-
-              <div class="track-result-block">
-                <h4>Results</h4>
-                <div class="result-placeholder">
-                  <strong>Result export pending</strong>
-                  <span>Add the final text plots, tables, or confusion matrices here.</span>
-                </div>
-              </div>
-            </section>
-
             <section class="track-card track-card--image" data-track-card>
               <div class="track-card-top">
                 <div>
@@ -155,30 +86,39 @@
               </div>
 
               <div class="track-view is-active" data-tab-panel="pipeline">
-                <div class="pipeline-flow" style="--pipeline-columns: 6;">
+                <div class="pipeline-flow" style="--pipeline-columns: 7;">
                   <div class="pipeline-step">
                     <span>Input</span>
-                    <strong>Image dataset</strong>
+                    <strong>Fundus images + grades</strong>
                   </div>
                   <div class="pipeline-step">
-                    <span>Check</span>
-                    <strong>Classes + split</strong>
+                    <span>Prepare</span>
+                    <strong>Crop-512 + class audit</strong>
                   </div>
                   <div class="pipeline-step">
-                    <span>Loader</span>
-                    <strong>Dataset + DataLoader</strong>
+                    <span>Split</span>
+                    <strong>Train / val / test CSV</strong>
                   </div>
                   <div class="pipeline-step">
-                    <span>Prep</span>
-                    <strong>Resize + augment</strong>
+                    <span>Model Input</span>
+                    <strong>Augmented image batches</strong>
+                  </div>
+                  <div class="pipeline-step pipeline-step--compare">
+                    <span>Compare</span>
+                    <div class="pipeline-branch-layout">
+                      <div class="pipeline-branch">
+                        <strong>CNN</strong>
+                        <small>ResNet50 fine-tune</small>
+                      </div>
+                      <div class="pipeline-branch">
+                        <strong>ViT</strong>
+                        <small>Image transformer branch</small>
+                      </div>
+                    </div>
                   </div>
                   <div class="pipeline-step">
-                    <span>Models</span>
-                    <strong>CNN and ViT fine-tuning</strong>
-                  </div>
-                  <div class="pipeline-step">
-                    <span>Result</span>
-                    <strong>Accuracy + F1 comparison</strong>
+                    <span>Evaluate</span>
+                    <strong>Acc / QWK / F1 / recall</strong>
                   </div>
                 </div>
               </div>
@@ -197,9 +137,169 @@
 
               <div class="track-result-block">
                 <h4>Results</h4>
-                <div class="result-placeholder">
-                  <strong>Result export pending</strong>
-                  <span>Add the final image figures, tables, or confusion matrices here.</span>
+                <div class="result-table-wrap">
+                  <table class="result-table">
+                    <caption>Baseline model performance comparison on the diabetic retinopathy dataset.</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Model Architecture</th>
+                        <th scope="col">Epochs</th>
+                        <th scope="col">Time/Epoch</th>
+                        <th scope="col">Val QWK</th>
+                        <th scope="col">Test Acc.</th>
+                        <th scope="col">Test QWK</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ResNet-50 (Scratch)</td>
+                        <td>32</td>
+                        <td>~5:00</td>
+                        <td>0.3911</td>
+                        <td>75.56%</td>
+                        <td>0.3702</td>
+                      </tr>
+                      <tr>
+                        <td>ResNet-50 (Pre-trained)</td>
+                        <td>32</td>
+                        <td>~5:15</td>
+                        <td>0.7850</td>
+                        <td>84.15%</td>
+                        <td>0.7708</td>
+                      </tr>
+                      <tr>
+                        <td>ViT</td>
+                        <td>40</td>
+                        <td>~14:50</td>
+                        <td>0.8123</td>
+                        <td>82.06%</td>
+                        <td>0.7592</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section class="track-card track-card--text" data-track-card>
+              <div class="track-card-top">
+                <div>
+                  <div class="info-label">Section 4.2</div>
+                  <h3>Text</h3>
+                </div>
+              </div>
+              <p class="content-text">
+                Compare two text-classification families, RNNs such as LSTM and Transformers, on the same
+                dataset with the same evaluation metrics for a fair comparison.
+              </p>
+
+              <div class="track-tabs" role="tablist" aria-label="Text assignment views">
+                <button class="track-tab is-active" type="button" data-tab-trigger="pipeline">Pipeline</button>
+                <button class="track-tab" type="button" data-tab-trigger="demo">Demo</button>
+                <button class="track-tab" type="button" data-tab-trigger="code">Code</button>
+                <button class="track-tab" type="button" data-tab-trigger="presentation">Presentation</button>
+              </div>
+
+              <div class="track-view is-active" data-tab-panel="pipeline">
+                <div class="pipeline-flow" style="--pipeline-columns: 7;">
+                  <div class="pipeline-step">
+                    <span>Input</span>
+                    <strong>20 Newsgroups docs</strong>
+                  </div>
+                  <div class="pipeline-step">
+                    <span>Prepare</span>
+                    <strong>Clean corpus + EDA</strong>
+                  </div>
+                  <div class="pipeline-step">
+                    <span>Split</span>
+                    <strong>Stratified train / val / test</strong>
+                  </div>
+                  <div class="pipeline-step">
+                    <span>Model Input</span>
+                    <strong>TF-IDF / word ids / BERT</strong>
+                  </div>
+                  <div class="pipeline-step pipeline-step--compare">
+                    <span>Compare</span>
+                    <div class="pipeline-branch-layout">
+                      <div class="pipeline-branch">
+                        <strong>BiLSTM</strong>
+                        <small>sequence model</small>
+                      </div>
+                      <div class="pipeline-branch">
+                        <strong>DistilBERT</strong>
+                        <small>transformer model</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pipeline-step">
+                    <span>Evaluate</span>
+                    <strong>Acc / Macro F1 / confusion</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="track-view" data-tab-panel="demo">
+                <div class="link-grid track-link-grid" id="text-demo-links"></div>
+              </div>
+
+              <div class="track-view" data-tab-panel="code">
+                <div class="link-grid track-link-grid" id="text-code-links"></div>
+              </div>
+
+              <div class="track-view" data-tab-panel="presentation">
+                <div class="link-grid track-link-grid" id="text-presentation-links"></div>
+              </div>
+
+              <div class="track-result-block">
+                <h4>Results</h4>
+                <div class="result-table-wrap">
+                  <table class="result-table result-table--text">
+                    <caption>20 Newsgroups validation and test comparison.</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">model</th>
+                        <th scope="col">family</th>
+                        <th scope="col">val_acc</th>
+                        <th scope="col">val_macro_f1</th>
+                        <th scope="col">test_acc</th>
+                        <th scope="col">test_macro_f1</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>DistilBERT Fine-tune</td>
+                        <td>Transformer</td>
+                        <td>0.770313</td>
+                        <td>0.757840</td>
+                        <td>0.722291</td>
+                        <td>0.706984</td>
+                      </tr>
+                      <tr>
+                        <td>TF-IDF + LogisticRegression</td>
+                        <td>Traditional baseline</td>
+                        <td>0.749433</td>
+                        <td>0.739115</td>
+                        <td>0.685664</td>
+                        <td>0.670127</td>
+                      </tr>
+                      <tr>
+                        <td>BiLSTM</td>
+                        <td>RNN</td>
+                        <td>0.387199</td>
+                        <td>0.376853</td>
+                        <td>0.343037</td>
+                        <td>0.331029</td>
+                      </tr>
+                      <tr>
+                        <td>Embedding + MeanPooling</td>
+                        <td>Neural baseline</td>
+                        <td>0.410803</td>
+                        <td>0.364556</td>
+                        <td>0.396747</td>
+                        <td>0.351003</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </section>
@@ -224,38 +324,39 @@
               </div>
 
               <div class="track-view is-active" data-tab-panel="pipeline">
-                <div class="pipeline-flow" style="--pipeline-columns: 8;">
+                <div class="pipeline-flow" style="--pipeline-columns: 7;">
                   <div class="pipeline-step">
                     <span>Input</span>
                     <strong>UPMC image + title pairs</strong>
                   </div>
                   <div class="pipeline-step">
-                    <span>Prep</span>
-                    <strong>Resolve image paths</strong>
-                  </div>
-                  <div class="pipeline-step">
-                    <span>Prep</span>
-                    <strong>Clean text titles</strong>
-                  </div>
-                  <div class="pipeline-step">
-                    <span>Subset</span>
-                    <strong>10 classes + EDA</strong>
+                    <span>Prepare</span>
+                    <strong>Path map + title clean</strong>
                   </div>
                   <div class="pipeline-step">
                     <span>Split</span>
-                    <strong>Train / val / test</strong>
+                    <strong>10-class train / val / test</strong>
                   </div>
                   <div class="pipeline-step">
-                    <span>Encode</span>
-                    <strong>CLIP image / text / fused</strong>
+                    <span>Model Input</span>
+                    <strong>Fusion (CLIP-preproccesed image + text)</strong>
                   </div>
-                  <div class="pipeline-step">
+                  <div class="pipeline-step pipeline-step--compare">
                     <span>Compare</span>
-                    <strong>Zero-shot CLIP vs Tip-Adapter</strong>
+                    <div class="pipeline-branch-layout">
+                      <div class="pipeline-branch">
+                        <strong>Zero-shot CLIP</strong>
+                        <small>prompted classes</small>
+                      </div>
+                      <div class="pipeline-branch">
+                        <strong>Tip-Adapter</strong>
+                        <small>few-shot cache</small>
+                      </div>
+                    </div>
                   </div>
                   <div class="pipeline-step">
-                    <span>Result</span>
-                    <strong>Accuracy, F1, confusion</strong>
+                    <span>Evaluate</span>
+                    <strong>Acc / Macro F1 / confusion</strong>
                   </div>
                 </div>
               </div>
@@ -274,9 +375,63 @@
 
               <div class="track-result-block">
                 <h4>Results</h4>
-                <figure class="result-figure">
-                  <img src="../images/ass1_multimodal.jpg" alt="Multimodal assignment results exported from the notebook" />
-                </figure>
+                <div class="result-table-wrap">
+                  <table class="result-table">
+                    <caption>UPMC Food-101 multimodal comparison for zero-shot CLIP and few-shot Tip-Adapter.</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Approach</th>
+                        <th scope="col">Shots</th>
+                        <th scope="col">Beta</th>
+                        <th scope="col">Alpha</th>
+                        <th scope="col">Test Accuracy</th>
+                        <th scope="col">Test Macro F1</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Zero-shot CLIP (multimodal fused)</td>
+                        <td>0</td>
+                        <td>NaN</td>
+                        <td>NaN</td>
+                        <td>0.972317</td>
+                        <td>0.972081</td>
+                      </tr>
+                      <tr>
+                        <td>Tip-Adapter (1-shot)</td>
+                        <td>1</td>
+                        <td>2.0</td>
+                        <td>5.0</td>
+                        <td>0.971891</td>
+                        <td>0.971589</td>
+                      </tr>
+                      <tr>
+                        <td>Tip-Adapter (4-shot)</td>
+                        <td>4</td>
+                        <td>2.0</td>
+                        <td>5.0</td>
+                        <td>0.975298</td>
+                        <td>0.975254</td>
+                      </tr>
+                      <tr>
+                        <td>Tip-Adapter (8-shot)</td>
+                        <td>8</td>
+                        <td>20.0</td>
+                        <td>20.0</td>
+                        <td>0.974020</td>
+                        <td>0.973932</td>
+                      </tr>
+                      <tr>
+                        <td>Tip-Adapter (16-shot)</td>
+                        <td>16</td>
+                        <td>2.0</td>
+                        <td>10.0</td>
+                        <td>0.976150</td>
+                        <td>0.976190</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </section>
           </div>
