@@ -36,26 +36,26 @@ window.SITE_CONFIG = {
       ],
       links: {
         demoVideo: '',
-        presentationVideo: '',
+        presentationVideo: 'https://youtu.be/jVdCQGbwC3U',
         code: '../notebooks/Deep_Learning_Multimodal.ipynb',
         presentationContent: 'https://docs.google.com/presentation/d/15oflcLnoYwTbu06x41ShLeXOURpBEKKbYQkUBg9S1es/edit?slide=id.g3d3a0908436_1_0#slide=id.g3d3a0908436_1_0'
       },
       trackLinks: {
         text: {
           demoVideo: '',
-          presentationVideo: '',
+          presentationVideo: 'https://youtu.be/jVdCQGbwC3U',
           code: '../notebooks/Text.ipynb',
           presentationContent: 'https://docs.google.com/presentation/d/15oflcLnoYwTbu06x41ShLeXOURpBEKKbYQkUBg9S1es/edit?slide=id.g3d3a0908436_1_0#slide=id.g3d3a0908436_1_0'
         },
         image: {
           demoVideo: '',
-          presentationVideo: '',
+          presentationVideo: 'https://youtu.be/jVdCQGbwC3U',
           code: 'https://www.kaggle.com/code/bngtiutr/diabeticretina-resnet50-pretrained',
           presentationContent: 'https://docs.google.com/presentation/d/15oflcLnoYwTbu06x41ShLeXOURpBEKKbYQkUBg9S1es/edit?slide=id.g3d3a0908436_1_0#slide=id.g3d3a0908436_1_0'
         },
         multimodal: {
           demoVideo: '',
-          presentationVideo: '',
+          presentationVideo: 'https://youtu.be/jVdCQGbwC3U',
           code: 'https://colab.research.google.com/drive/1KdneEnNXAFimBTEkGGbt3464srvr9xjR?usp=sharing',
           presentationContent: 'https://docs.google.com/presentation/d/15oflcLnoYwTbu06x41ShLeXOURpBEKKbYQkUBg9S1es/edit?slide=id.g3d3a0908436_1_0#slide=id.g3d3a0908436_1_0'
         }
