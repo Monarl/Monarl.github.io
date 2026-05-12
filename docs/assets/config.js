@@ -44,7 +44,7 @@ window.SITE_CONFIG = {
         text: {
           demoVideo: '',
           presentationVideo: 'https://youtu.be/jVdCQGbwC3U',
-          code: 'https://colab.research.google.com/drive/1LC02DqCmxqfthetKZeyO_tWUwtbSOFIh?usp=sharing',
+          code: 'https://colab.research.google.com/drive/1lR2g-ZhHXLKyL06A9EPAhEdA8MbkZIDo?usp=sharing',
           presentationContent: 'https://docs.google.com/presentation/d/15oflcLnoYwTbu06x41ShLeXOURpBEKKbYQkUBg9S1es/edit?slide=id.g3d3a0908436_1_0#slide=id.g3d3a0908436_1_0'
         },
         image: {
